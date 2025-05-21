@@ -1,6 +1,10 @@
-// Переменная — это поименованная область памяти определенного типа, имеющая имя.
 package main
 
+import "fmt"
+
 func main() {
-	var number int = 1024
+	language := "Pascal"
+	language = "C++"
+	language = "Go"
+	fmt.Println(language)
 }
