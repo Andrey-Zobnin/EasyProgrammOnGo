@@ -1,10 +1,10 @@
 package main
 
-import "fmt"
-
 func main() {
-	language := "Pascal"
-	language = "C++"
-	language = "Go"
-	fmt.Println(language)
+	language1 := "Python"
+	language2 := "C++"
+	language3 := "Go"
+	language2 = language3
+	language1 = language2
+
 }
