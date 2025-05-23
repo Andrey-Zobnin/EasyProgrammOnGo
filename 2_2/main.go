@@ -1,10 +1,10 @@
 package main
 
-func main() {
-	language1 := "Python"
-	language2 := "C++"
-	language3 := "Go"
-	language2 = language3
-	language1 = language2
+import "fmt"
 
+func main() {
+	var a int = 25
+	var b int = 4
+	fmt.Println(a + b)
+	// two sum = 29
 }
