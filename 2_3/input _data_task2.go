@@ -9,5 +9,5 @@ func main() {
 	a := ""
 
 	fmt.Scanln(&a)
-	fmt.Printl(a)
+	fmt.Println(a)
 }
