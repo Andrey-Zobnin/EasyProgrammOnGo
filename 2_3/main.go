@@ -4,8 +4,8 @@ import ("fmt")
 
 func main() {
     var a string = ""
-	var b string = ""
+	// var b string = ""
 	fmt.Scan(a)
-	fmt.Print(a)
+	fmt.Print("Привет, ", a)
 
 }
