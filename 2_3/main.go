@@ -2,10 +2,11 @@ package main
 
 import ("fmt") 
 
+
 func main() {
-    var a string = ""
-	// var b string = ""
-	fmt.Scan(a)
+	var a string
+	// указатель на переменную принимает команда fmt.Scan(&a)
+	fmt.Scan(&a)
 	fmt.Print("Привет, ", a)
 
 }
