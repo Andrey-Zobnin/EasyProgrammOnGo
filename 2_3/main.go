@@ -1,6 +1,8 @@
 package main
 
-import ("fmt") 
+import (
+	"fmt"
+)
 
 var a string
 
@@ -9,5 +11,5 @@ func main() {
 	// указатель на переменную принимает команда fmt.Scan(&a)
 	fmt.Scan(&a)
 	fmt.Print("Привет, ", a)
-	
+
 }
