@@ -4,11 +4,14 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
 	read := bufio.NewReaderSize(os.Stdin)
-	var n int
-	fmt.Fscan(read, &n)
+	metaData, _ := read.ReadString('\n')
+	metaData = strings.TrimSpace(metaData)
+	// output
+	fmt.Println(metaData)
 
 }
