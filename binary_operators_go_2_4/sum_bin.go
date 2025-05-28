@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"testing"
 )
 
 // bin operator defualt type
@@ -47,4 +48,39 @@ func (bo *BinOperator) PrintOperation(op string, a, b int) {
 		return
 	}
 	fmt.Printf("%d %s %d = %d\n", a, op, b, result)
+}
+
+func TestBinaryOperations(t *testing.T) {
+	tests := []struct {
+		name     string
+		op       string
+		a, b     int
+		expected int
+		wantErr  bool
+	}{
+		{"Сложение", "+", 5, 3, 8, false},
+		{"Вычитание", "-", 5, 3, 2, false},
+		{"Умножение", "*", 5, 3, 15, false},
+		{"Целочисленное деление", "/", 5, 2, 2, false},
+		{"Остаток от деления", "%", 5, 2, 1, false},
+		{"Деление на ноль", "/", 5, 0, 0, true},
+		{"Неизвестная операция", "&", 5, 3, 0, true},
+	}
+
+	operator := NewBinaryOperator()
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := operator.Calculate(tt.op, tt.a, tt.b)
+
+			if (err != nil) != tt.wantErr {
+				t.Errorf("Calculate() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if !tt.wantErr && got != tt.expected {
+				t.Errorf("Calculate() = %v, want %v", got, tt.expected)
+			}
+		})
+	}
 }
