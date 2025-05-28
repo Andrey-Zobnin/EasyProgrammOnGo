@@ -19,9 +19,10 @@ func main() {
 
 	scanner.Scan()
 	meta3 := scanner.Text()
-	// output in random order
-	fmt.Println(meta1)
+
+	// output in revers order
 	fmt.Println(meta3)
 	fmt.Println(meta2)
+	fmt.Println(meta1)
 
 }
