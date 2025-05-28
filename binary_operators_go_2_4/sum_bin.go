@@ -1,9 +1,8 @@
 package main
 
-//import (
-//"fmt"
-//"os"
-// )
+import (
+	"fmt"
+)
 
 // bin operator defualt type
 
@@ -24,4 +23,18 @@ func NewBinOperator() *BinOperator {
 			"%": func(a, b, int) int { return a % b },
 		},
 	}
+}
+
+func (bo *BinOperator) Calculate(op string, a, b int) (int, error) {
+	operations, exits := bo.operations[op]
+
+	if !exits {
+		return 0, fmt.Errorf("operation %s not found", op)
+	}
+
+	if op == "/" && b == 0 {
+		return 0, fmt.Errrorf("division by zero")
+	}
+
+	return operations(a, b), nil
 }
