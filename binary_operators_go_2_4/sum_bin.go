@@ -84,3 +84,58 @@ func TestBinaryOperations(t *testing.T) {
 		})
 	}
 }
+
+func TestPrintOperation(t *testing.T) {
+	// Перехватываем вывод stdout
+	old := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	operator := NewBinOperator()
+	operator.PrintOperation("+", 2, 3)
+
+	w.Close()
+	os.Stdout = old
+
+	var output []byte
+	fmt.Fscanf(r, "%s", &output) // Упрощенный вариант чтения вывода
+
+	expected := "2 + 3 = 5"
+	if string(output) != expected {
+		t.Errorf("PrintOperation() output = %v, want %v", string(output), expected)
+	}
+}
+
+func ExampleBinaryOperator_PrintOperation() {
+	operator := NewBinOperator()
+	operator.PrintOperation("+", 5, 3)
+	operator.PrintOperation("-", 5, 3)
+	operator.PrintOperation("*", 5, 3)
+	operator.PrintOperation("/", 5, 2)
+	operator.PrintOperation("%", 5, 2)
+	operator.PrintOperation("/", 5, 0)
+	operator.PrintOperation("&", 5, 3)
+
+	// Output:
+	// 5 + 3 = 8
+	// 5 - 3 = 2
+	// 5 * 3 = 15
+	// 5 / 2 = 2
+	// 5 % 2 = 1
+	// Ошибка: деление на ноль
+	// Ошибка: неизвестная операция: &
+}
+
+func main() {
+	operator := NewBinaryOperator()
+
+	// Демонстрация всех операций
+	operations := []string{"+", "-", "*", "/", "%"}
+	for _, op := range operations {
+		operator.PrintOperation(op, 15, 4)
+	}
+
+	// Проверка ошибок
+	operator.PrintOperation("&", 15, 4) // Неизвестная операция
+	operator.PrintOperation("/", 15, 0) // Деление на ноль
+}
