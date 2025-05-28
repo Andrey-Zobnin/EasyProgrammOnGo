@@ -7,15 +7,15 @@ import (
 )
 
 func main() {
+	var meta [3]string
 	scanner := bufio.NewScanner(os.Stdin)
-	meta := make([]string, 0, 3)
 
 	for i := 0; i < 3; i++ {
 		scanner.Scan()
-		meta = append(meta, scanner.Text())
+		meta[i] = scanner.Text()
 	}
 
-	for i := len(meta) - 1; i >= 0; i-- {
+	for i := 2; i >= 0; i-- {
 		fmt.Println(meta[i])
 	}
 }
