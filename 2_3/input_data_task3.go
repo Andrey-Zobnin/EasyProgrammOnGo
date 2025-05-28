@@ -8,21 +8,14 @@ import (
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	//for i := 0; i > 0; i++ {}
-	// _ = scanner.Scan()
+	meta := make([]strings, 0, 3)
 
-	scanner.Scan()
-	meta1 := scanner.Text()
+	for i := 0; i < 3; i++ {
+		scanner.Scan()
+		meta = append(lines, scanner.Text())
+	}
 
-	scanner.Scan()
-	meta2 := scanner.Text()
-
-	scanner.Scan()
-	meta3 := scanner.Text()
-
-	// output in revers order
-	fmt.Println(meta3)
-	fmt.Println(meta2)
-	fmt.Println(meta1)
-
+	for i := len(meta) - 1; i >= 0; i-- {
+		fmt.Println(meta[i])
+	}
 }
