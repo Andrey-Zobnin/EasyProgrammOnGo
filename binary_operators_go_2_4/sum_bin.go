@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 // bin operator defualt type
@@ -37,4 +38,13 @@ func (bo *BinOperator) Calculate(op string, a, b int) (int, error) {
 	}
 
 	return operations(a, b), nil
+}
+
+func (bo *BinOperator) PrintOperation(op string, a, b int) {
+	result, err := bo.Calculate(op, a, b)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Ошибка: %v\n", err)
+		return
+	}
+	fmt.Printf("%d %s %d = %d\n", a, op, b, result)
 }
