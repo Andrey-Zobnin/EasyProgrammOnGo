@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	scan := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(os.Stdin)
 	//for i := 0; i > 0; i++ {}
-	_ = scan.Scan()
-	meta := scan.Text()
+	_ = scanner.Scan()
+	meta := scanner.Text()
 	fmt.Println(meta)
 }
