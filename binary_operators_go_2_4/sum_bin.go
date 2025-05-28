@@ -127,7 +127,7 @@ func ExampleBinaryOperator_PrintOperation() {
 }
 
 func main() {
-	operator := NewBinaryOperator()
+	operator := NewBinOperator()
 
 	// Демонстрация всех операций
 	operations := []string{"+", "-", "*", "/", "%"}
