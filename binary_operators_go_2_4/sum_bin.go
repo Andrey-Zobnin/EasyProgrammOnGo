@@ -13,3 +13,15 @@ type BinOperator func(int, int) int
 type BinOperator struct {
 	operations map[string]BinOperator
 }
+
+func NewBinOperator() *BinOperator {
+	return &BinOperator{
+		operations: map[string]BinOperator{
+			"+": func(a, b, int) int { return a + b },
+			"-": func(a, b, int) int { return a - b },
+			"*": func(a, b, int) int { return a * b },
+			"/": func(a, b, int) int { return a / b },
+			"%": func(a, b, int) int { return a % b },
+		},
+	}
+}
