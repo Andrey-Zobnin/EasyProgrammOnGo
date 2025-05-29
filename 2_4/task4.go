@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	var num0, num1, num2 int
+	var nums [3]int
 
 	for i := 0; i < 3; i++ {
-		fmt.Scanln(&num0, &num1, &num2)
+		fmt.Scanln(&nums[i])
 	}
-	result := num0 * num1 * num2
+	result := nums[0] * nums[1] * nums[2]
 	fmt.Println(result)
 }
