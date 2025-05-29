@@ -1,26 +1,13 @@
 package main
 
-import (
-	"bufio"
-	"os"
-)
+import "fmt"
 
 func main() {
-
-	var inputData [3]string
-	scanner := bufio.NewScanner(os.Stdin)
+	var num0, num1, num2 int
 
 	for i := 0; i < 3; i++ {
-
-		if scanner.Scan() {
-			inputData[i] = scanner.Text()
-
-		}
+		fmt.Scanln(&num0, &num1, &num2)
 	}
-	// TODO create math with string, else refzctor code with zero
-	for i := 0; i < 3; i++ {
-		// name = strconv.Atoi(inputData[i])
-		// fmt.Println(name)
-	}
-
+	result := num0 * num1 * num2
+	fmt.Println(result)
 }
