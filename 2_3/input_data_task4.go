@@ -8,12 +8,14 @@ import (
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	var lines [4]string
+	var lines [3]string
 
 	for i := 0; i < 4; i++ {
 		scanner.Scan()
 		lines[i] = scanner.Text()
 	}
 
-	fmt.Println(lines[1] + lines[0] + lines[2] + lines[0] + lines[3])
+	fmt.Println(lines[0])
+	fmt.Println(lines[1])
+	fmt.Println(lines[2])
 }
