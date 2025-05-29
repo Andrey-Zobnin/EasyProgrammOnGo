@@ -1,18 +1,10 @@
-pacakage main 
+package main
 
-import (
-	"fmt"
-	"os"
-)
-
+import "fmt"
 
 func main() {
-	startValueInLoop := 0
-	sizeOfArray := 4
-	var inputMetaDataString [sizeOfArray]string 
-	fmt.Scan(&inputMetaDataString)
-
-	for i := startValueInLoop; i < sizeOfArray; i++ {
-		
-	}
+	var N, K int
+	fmt.Scan(&N, &K)
+	applesPerStudent := K / N
+	fmt.Println(applesPerStudent)
 }
