@@ -4,6 +4,12 @@ import "fmt"
 
 func main() {
 	// task 6
-	fmt.Println("task 6")
-	fmt.Println("")
+	var n, k int
+	fmt.Scan(&n, &k)
+
+	res := k % n
+	if res == 0 {
+		fmt.Println(err)
+	}
+	fmt.Println(res)
 }
